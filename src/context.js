@@ -43,7 +43,9 @@ export const AppProvider = ({ children }) => {
         <>
         {/*
         AppContext, bir bileşen ağacının belirli bir yerindeki component'lar arasında veri paylaşımını sağlamak için kullanılır.
-        Provider bileşeni, bu Context nesnesini kullanarak paylaşılacak verileri sağlar. 
+        Provider bileşeni, bu Context nesnesini kullanarak paylaşılacak verileri sağlar.
+        value özelliği bağlamda paylaşmak istediğimiz değerleri belirtir.
+        Bu değerler bağlamı kullanan alt bileşenler tarafından erişilebilir hale gelir.
         */}
             <AppContext.Provider
             value={{
@@ -62,6 +64,12 @@ export const AppProvider = ({ children }) => {
     )
 }
 
+/*
+useGlobalContext adında bir özel bir hook oluşturdum. Bu hook useContext hook'unu kullanarak AppContext bağlamına erişim sağlar.
+useGlobalContext hook'u çağrıldığında useContext(AppContext) ifadesi kullanılır 
+ve AppContext bağlamının değerlerini döndürür.
+Bu sayede, AppContext.Provider bileşeni tarafından sağlanan değerlere erişim sağlayan bileşenler, useGlobalContext hook'unu kullanarak bu değerlere kolayca erişebilirler.
+*/
 export const useGlobalContext = () => {
     return useContext(AppContext)
 }
