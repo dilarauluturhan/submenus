@@ -1,1 +1,1 @@
-> Stripe with React.js
+> Submenus with React.js

@@ -6,7 +6,12 @@ import Submenu from './Submenu.js';
 
 function App() {
   return (
-    <div>App</div>
+    <>
+      <Navbar />
+      <Hero />
+      <Sidebar />
+      <Submenu />
+    </>
   )
 }
 
