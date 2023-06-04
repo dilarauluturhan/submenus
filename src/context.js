@@ -10,6 +10,7 @@ const AppContext = React.createContext();
 export const AppProvider = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+    const [location, setLocation] = useState({})
 
     /*
     openSidebar fonksiyonu, setIsSidebarOpen fonksiyonunu çağırarak isSidebarOpen durum değişkenini true olarak günceller.
@@ -28,7 +29,8 @@ export const AppProvider = ({ children }) => {
     /*
     openSubmenu fonksiyonu, setIsSubmenuOpen fonksiyonunu çağırarak isSubmenuOpen durum değişkenini true olarak günceller.
     */
-    const openSubmenu = () => {
+    const openSubmenu = (text, coordinates) => {
+        setLocation(coordinates);
         setIsSubmenuOpen(true);
     };
 
@@ -41,21 +43,22 @@ export const AppProvider = ({ children }) => {
 
     return (
         <>
-        {/*
+            {/*
         AppContext, bir bileşen ağacının belirli bir yerindeki component'lar arasında veri paylaşımını sağlamak için kullanılır.
         Provider bileşeni, bu Context nesnesini kullanarak paylaşılacak verileri sağlar.
         value özelliği bağlamda paylaşmak istediğimiz değerleri belirtir.
         Bu değerler bağlamı kullanan alt bileşenler tarafından erişilebilir hale gelir.
         */}
             <AppContext.Provider
-            value={{
-                isSubmenuOpen,
-                isSidebarOpen,
-                openSubmenu,
-                openSidebar,
-                closeSubmenu,
-                closeSidebar
-            }}
+                value={{
+                    isSubmenuOpen,
+                    isSidebarOpen,
+                    openSubmenu,
+                    openSidebar,
+                    closeSubmenu,
+                    closeSidebar,
+                    location
+                }}
             >
                 {/* Veriye erişilebilen bileşenler */}
                 {children}
