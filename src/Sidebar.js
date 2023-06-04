@@ -13,13 +13,13 @@ const Sidebar = () => {
           <button className='close-btn' onClick={closeSidebar}>
             <FaTimes />
           </button>
-          <div className='sidebar-links'>
+          <div className='sidebar-sublinks'>
             {
               sublinks.map((item, index) => {
                 const { links, page } = item;
                 return <article key={index}>
                   <h4>{page}</h4>
-                  <div className='sidebar-links'>
+                  <div className='sidebar-sublinks'>
                     {
                       links.map((link, index) => {
                         const { url, icon, label } = link;
