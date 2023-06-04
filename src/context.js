@@ -8,8 +8,8 @@ Bu Context nesnesi, verileri üreten ve tüketen bileşenler arasında iletişim
 const AppContext = React.createContext();
 
 export const AppProvider = ({ children }) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const [isSubmenuOpen, setIsSubmenuOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
     /*
     openSidebar fonksiyonu, setIsSidebarOpen fonksiyonunu çağırarak isSidebarOpen durum değişkenini true olarak günceller.
