@@ -3,11 +3,12 @@ import phoneImg from './images/phone.svg';
 import { useGlobalContext } from './context.js';
 
 const Hero = () => {
+  // "useGlobalContext" özelliğinden "closeSubmenu" özelliğini alır.
   const { closeSubmenu } = useGlobalContext();
 
   return (
     <>
-      <section className='hero' onMouseOver={closeSubmenu}>
+      <section className='hero' onMouseOver={closeSubmenu}> {/* Hero bileşeninin dışında bir bölüm oluşturur ve fare üzerine geldiğinde closeSubmenu fonksiyonunu tetikler. */}
         <div className='hero-center'>
           <article className='hero-info'>
             <h1>Payments infrastructure <br />
